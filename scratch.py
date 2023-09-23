@@ -1,11 +1,11 @@
 from youtube_transcript_api import YouTubeTranscriptApi
 
-# Video URL or video ID
-video_id = '2QF52jLYkNo?si=z6yGnh9ho8pv2KXL'
-
 try:
+    # Get the video URL or video ID from the user
+    video_url = input("Enter the YouTube video URL or video ID: ")
+
     # Get the transcript for the video
-    transcript = YouTubeTranscriptApi.get_transcript(video_id)
+    transcript = YouTubeTranscriptApi.get_transcript(video_url)
 
     # Create or overwrite the "subtitles.txt" file
     with open("subtitles.txt", "w", encoding="utf-8") as f:
@@ -17,5 +17,3 @@ try:
     print("Transcript has been saved to 'subtitles.txt'")
 except Exception as e:
     print(f"An error occurred: {str(e)}")
-
-
